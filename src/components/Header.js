@@ -1,23 +1,17 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import Logo from './Logo'
+import SignUpModal from './SignUpModal'
+import SignInModal from './SignInModal'
+import SignOutModal from './SignOutModal'
 
 export default class Header extends Component {
-  state = {}
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
 
     return (
-      <Menu
-        size={'massive'}>
-        <Menu.Item
-          name='logo'
-          active={activeItem === 'logo'}
-          onClick={this.handleItemClick}
-          >
+      <Menu size={'large'}>
+        <Menu.Item name='logo'>
           <Logo />
         </Menu.Item>
 
@@ -26,27 +20,9 @@ export default class Header extends Component {
           </h1>
 
         <Menu.Menu position='right'>
-          <Menu.Item
-            name='login'
-            active={activeItem === 'login'}
-            onClick={this.handleItemClick}
-          >
-          Login
-          </Menu.Item>
-          <Menu.Item
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={this.handleItemClick}
-          >
-          Logout
-          </Menu.Item>
-          <Menu.Item
-            name='signUp'
-            active={activeItem === 'signUp'}
-            onClick={this.handleItemClick}
-          >
-          Sign Up
-          </Menu.Item>
+          <SignInModal />
+          <SignUpModal />
+          <SignOutModal />
         </Menu.Menu>
       </Menu>
     )

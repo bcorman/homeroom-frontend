@@ -1,6 +1,6 @@
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from '../actions/types'
 
-export default authReducer = (state = {}, action) => {
+const authReducer = (state = {}, action) => {
   switch (action.type) {
     case AUTH_USER:
       return {...state, error: '', authenticated: true}
@@ -14,3 +14,5 @@ export default authReducer = (state = {}, action) => {
       return state
   }
 }
+
+export default authReducer
