@@ -10,7 +10,7 @@ class SignUpForm extends Component {
     confirmPassword: ''
   }
 
-  handleChange= (e) => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -22,7 +22,6 @@ class SignUpForm extends Component {
   }
 
   render() {
-    console.log(actions.signUpUser)
     return (
       <Form>
         <Form.Input required
@@ -55,9 +54,6 @@ class SignUpForm extends Component {
 const mapStateToProps = state => {
   return state
 }
-//
-// const mapDispatchToProps = dispatch => {
-//   return {signUpUser: dispatch(actions.signUpUser)}
-// }
+
 
 export default connect(mapStateToProps, actions)(SignUpForm)

@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { Button, Modal, Menu } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 
-export default class SignOutModal extends Component {
+class SignOutModal extends Component {
+
+  signOut = (e) => {
+    e.preventDefault()
+    this.props.signOutUser()
+  }
 
   render() {
 
@@ -17,9 +24,20 @@ export default class SignOutModal extends Component {
         </Modal.Content>
         <Modal.Actions>
           <Button negative>No</Button>
-          <Button positive icon='checkmark' labelPosition='right' content='Yes' />
+          <Button
+            positive icon='checkmark'
+            labelPosition='right'
+            content='Yes'
+            onClick={this.signOut}/>
         </Modal.Actions>
       </Modal>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return state
+}
+
+
+export default connect(mapStateToProps, actions)(SignOutModal)

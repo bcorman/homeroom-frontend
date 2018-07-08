@@ -22,3 +22,29 @@ export function signUpUser(email, password, passwordConfirmation) {
       })
   }
 }
+
+export function signInUser(email, password) {
+  return function (dispatch) {
+    // submit email and password to server
+    const request = axios.post(`${ROOT_URL}/signin`, {email, password})
+    request
+      .then(response => {
+        // -Save the JWT token
+        localStorage.setItem('token', response.data.token)
+        // -if request is good, we need to update state to indicate user is authenticated
+        dispatch({type: AUTH_USER})
+      })
+      // If request is bad...
+      // -Show an error to the user
+      .catch(() => {
+        dispatch(authError('bad login info'))
+      })
+  }
+}
+
+export function signOutUser() {
+  localStorage.removeItem('token')
+  return {
+    type: UNAUTH_USER
+  }
+}
