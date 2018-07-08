@@ -3,7 +3,7 @@ import authReducer from './authReducer'
 import modalReducers from './modalReducer'
 
 const rootReducer = combineReducers({
-  modalReducers,
+  modals: modalReducers,
   auth: authReducer
 })
 

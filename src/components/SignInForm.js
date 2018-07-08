@@ -15,7 +15,6 @@ class SignInForm extends Component {
   }
 
   submit = (e) => {
-    e.preventDefault()
     this.props.signInUser(this.state.email, this.state.password)
   }
   render() {

@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 import Logo from './Logo'
-import SignUpModal from './SignUpModal'
-import SignInModal from './SignInModal'
-import SignOutModal from './SignOutModal'
+import { connect } from 'react-redux'
+import * as actions from '../actions/modalActions'
 
-export default class Header extends Component {
+class Header extends Component {
 
+
+  componentWillUpdate() {
+    return true
+  }
   render() {
     if (this.props.authenticated) {
+
       return (
         <Menu size={'large'}>
           <Menu.Item name='logo'>
@@ -20,7 +24,11 @@ export default class Header extends Component {
           </h1>
 
           <Menu.Menu position='right'>
-            <SignOutModal />
+            <Menu.Item>
+              <Button>
+                Sign Out
+              </Button>
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
       )
@@ -36,11 +44,25 @@ export default class Header extends Component {
           </h1>
 
           <Menu.Menu position='right'>
-            <SignInModal />
-            <SignUpModal />
+            <Menu.Item>
+              <Button
+                onClick={actions.signInOpen}>
+                Sign In
+              </Button>
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
       )
     }
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    signInShow: state.signInShow,
+    signUpShow: state.signUpShow,
+    signOutShow: state.signOutShow
+  }
+}
+
+export default connect(mapStateToProps, actions)(Header)
