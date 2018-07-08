@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Button, Header, Modal, Menu } from 'semantic-ui-react'
+import { Button, Modal, Menu } from 'semantic-ui-react'
 
 export default class SignOutModal extends Component {
 
   render() {
-    
+
     return (
       <Modal
         size='small'

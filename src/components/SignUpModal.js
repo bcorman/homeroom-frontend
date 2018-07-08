@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
-import { Button, Header, Modal, Menu } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { Button, Header, Modal, Menu, Form, Message } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
 import SignUpForm from './SignUpForm'
+import {signUpUser} from '../actions/authActions'
 
-export default class SignUpModal extends Component {
+class SignUpModal extends Component {
+
+  getRedirectPath() {
+    const locationState = this.props.location.state
+    if (locationState && locationState.from.pathname) {
+      return locationState.from.pathname
+    } else {
+      return '/'
+    }
+  }
 
   render() {
+    console.log(this.props)
     return (
       <Modal
         trigger={<Menu.Item
@@ -19,3 +32,12 @@ export default class SignUpModal extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error
+  }
+}
+
+export default connect(mapStateToProps, signUpUser)(SignUpModal)

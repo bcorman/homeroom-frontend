@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
 
+
 export default class SignInForm extends Component {
+
   render() {
     return (
       <Form>
@@ -13,7 +15,7 @@ export default class SignInForm extends Component {
         <Message error
           header='Log In Failed'
           content='Please verify your username and password and try again.' />
-        <Button type='submit'>Submit</Button>
+        <Button type='submit' onClick={this.submit}>Submit</Button>
       </Form>
     )
   }
