@@ -8,6 +8,7 @@ import SignUpModal from './SignUpModal'
 
 class Header extends Component {
   render() {
+    console.log(this.props.user)
     if (this.props.authenticated) {
       return (
         <Menu size={'large'}>
@@ -21,9 +22,10 @@ class Header extends Component {
 
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Menu.Item>
-                <SignOutModal />
-              </Menu.Item>
+              <small>Welcome {this.props.user}</small>
+            </Menu.Item>
+            <Menu.Item>
+              <SignOutModal />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -36,7 +38,7 @@ class Header extends Component {
           </Menu.Item>
 
           <h1 id='header-school-name'>
-            British International School of New York
+            Normal Middle School
           </h1>
 
           <Menu.Menu position='right'>
@@ -56,7 +58,8 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     authenticated: state.auth.authenticated,
-    errorMessage: state.auth.error
+    errorMessage: state.auth.error,
+    user: state.auth.username
   }
 }
 

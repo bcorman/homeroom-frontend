@@ -5,6 +5,7 @@ import * as actions from '../actions/'
 
 class SignUpForm extends Component {
   state = {
+    username: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -17,13 +18,18 @@ class SignUpForm extends Component {
   submit = (e) => {
     e.preventDefault()
     if (this.state.password === this.state.confirmPassword) {
-      this.props.signUpUser(this.state.email, this.state.password, this.state.confirmPassword)
+      this.props.signUpUser(this.state.username, this.state.email, this.state.password, this.state.confirmPassword)
     }
   }
 
   render() {
     return (
       <Form>
+        <Form.Input required
+          label='Username'
+          type='username'
+          name='username'
+          onChange={this.handleChange}/>
         <Form.Input required
           label='Email'
           type='email'

@@ -9,13 +9,14 @@ export const authError = (error) => {
   }
 }
 
-export function signUpUser(email, password, passwordConfirmation) {
-  console.log(email)
+export function signUpUser(username, email, password, passwordConfirmation) {
+
   return function (dispatch) {
-    axios.post(`${ROOT_URL}/signup`, {email, password, passwordConfirmation})
+    axios.post(`${ROOT_URL}/signup`, {username, email, password, passwordConfirmation})
       .then(response => {
         dispatch({type: AUTH_USER})
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user', response.data.user)
       })
       .catch(({response}) => {
         dispatch(authError(response.data.error))
@@ -30,7 +31,9 @@ export function signInUser(email, password) {
     request
       .then(response => {
         // -Save the JWT token
+        console.log(response)
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user', response.data.user)
         // -if request is good, we need to update state to indicate user is authenticated
         dispatch({type: AUTH_USER})
       })

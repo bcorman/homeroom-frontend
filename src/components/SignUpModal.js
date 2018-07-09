@@ -17,7 +17,6 @@ class SignUpModal extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Modal trigger={<Button name='signUp'>Sign Up</Button>}>
         <Modal.Header>Sign Up</Modal.Header>
@@ -30,10 +29,7 @@ class SignUpModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    authenticated: state.auth.authenticated,
-    errorMessage: state.auth.error
-  }
+  return state
 }
 
 export default connect(mapStateToProps, signUpUser)(SignUpModal)
