@@ -6,6 +6,7 @@ export default class Logo extends Component {
     return (
       <FontAwesome
         className='fas fa-graduation-cap'
+        id='logo'
         name='fas fa-graduation-cap'
         size='2x'
       />

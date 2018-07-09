@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
-import Logo from './Logo'
 import { connect } from 'react-redux'
 import SignInModal from './SignInModal'
 import SignOutModal from './SignOutModal'
@@ -12,12 +11,8 @@ class Header extends Component {
     if (this.props.authenticated) {
       return (
         <Menu size={'large'}>
-          <Menu.Item name='logo'>
-            <Logo />
-          </Menu.Item>
-
           <h1 id='header-school-name'>
-            British International School of New York
+            Minimum Viable Middle School
           </h1>
 
           <Menu.Menu position='right'>
@@ -33,9 +28,6 @@ class Header extends Component {
     } else {
       return (
         <Menu size={'large'}>
-          <Menu.Item name='logo'>
-            <Logo />
-          </Menu.Item>
 
           <h1 id='header-school-name'>
             Normal Middle School
