@@ -3,6 +3,7 @@ import { Menu, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import Logo from '../components/Logo'
 import FacultyDropdown from '../components/dropdowns/FacultyDropdown'
+import ClassDropdown from '../components/dropdowns/ClassDropdown'
 
 class AsideContainer extends Component {
 
@@ -30,11 +31,7 @@ class AsideContainer extends Component {
               onClick={this.handleItemClick}
             />
               <FacultyDropdown />
-            <Menu.Item
-              name='classes'
-              active={activeItem === 'classes'}
-              onClick={this.handleItemClick}
-            />
+              <ClassDropdown />
             <Menu.Item
               name='useful documents'
               active={activeItem === 'documents'}
@@ -66,7 +63,8 @@ const mapStateToProps = (state) => {
     authenticated: state.auth.authenticated,
     errorMessage: state.auth.error,
     user: state.auth.user,
-    faculty: state.list.faculty
+    faculty: state.faculty,
+    classes: state.classes
   }
 }
 

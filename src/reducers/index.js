@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import authReducer from './authReducer'
-import dropdownReducer from './dropdownReducer'
+import facultyReducer from './facultyReducer'
+import classesReducer from './classReducer'
 
 
 
 const rootReducer = combineReducers({
-  list: dropdownReducer,
+  faculty: facultyReducer,
+  classes: classesReducer,
   auth: authReducer
 })
 

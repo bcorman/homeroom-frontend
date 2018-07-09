@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, FETCH_MESSAGE, LIST_FACULTY, CURRENT_USER } from './types'
+import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, FETCH_MESSAGE, LIST_FACULTY, CURRENT_USER, LIST_CLASSES } from './types'
 import { getFaculty } from './dropdownActions'
 const ROOT_URL = 'http://localhost:3090'
 
@@ -36,13 +36,17 @@ export function signInUser(email, password) {
         localStorage.setItem('token', response.data.token)
         let user = response.data.user
         let faculty = response.data.faculty
+        let classes = response.data.classes
         console.log(`in axios call: `)
         console.log(response.data)
         // -if request is good, we need to update state to indicate user is authenticated
         localStorage.setItem('user', user.name)
         localStorage.setItem('email', user.email)
+        localStorage.setItem('classes', JSON.stringify(classes))
+        localStorage.setItem('faculty', JSON.stringify(faculty))
         dispatch({ type: AUTH_USER, payload: user})
         dispatch({ type: LIST_FACULTY, payload: faculty })
+        dispatch({ type: LIST_CLASSES, payload: classes })
       })
       // If request is bad...
       // -Show an error to the user
