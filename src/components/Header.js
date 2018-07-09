@@ -1,54 +1,66 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 import Logo from './Logo'
+import { connect } from 'react-redux'
+import SignInModal from './SignInModal'
+import SignOutModal from './SignOutModal'
+import SignUpModal from './SignUpModal'
 
-export default class Header extends Component {
-  state = {}
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
+class Header extends Component {
   render() {
-    const { activeItem } = this.state
-
-    return (
-      <Menu
-        size={'massive'}>
-        <Menu.Item
-          name='logo'
-          active={activeItem === 'logo'}
-          onClick={this.handleItemClick}
-          >
-          <Logo />
-        </Menu.Item>
+    console.log(this.props.user)
+    if (this.props.authenticated) {
+      return (
+        <Menu size={'large'}>
+          <Menu.Item name='logo'>
+            <Logo />
+          </Menu.Item>
 
           <h1 id='header-school-name'>
             British International School of New York
           </h1>
 
-        <Menu.Menu position='right'>
-          <Menu.Item
-            name='login'
-            active={activeItem === 'login'}
-            onClick={this.handleItemClick}
-          >
-          Login
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <small>Welcome {this.props.user}</small>
+            </Menu.Item>
+            <Menu.Item>
+              <SignOutModal />
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
+      )
+    } else {
+      return (
+        <Menu size={'large'}>
+          <Menu.Item name='logo'>
+            <Logo />
           </Menu.Item>
-          <Menu.Item
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={this.handleItemClick}
-          >
-          Logout
-          </Menu.Item>
-          <Menu.Item
-            name='signUp'
-            active={activeItem === 'signUp'}
-            onClick={this.handleItemClick}
-          >
-          Sign Up
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-    )
+
+          <h1 id='header-school-name'>
+            Normal Middle School
+          </h1>
+
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <SignInModal />
+            </Menu.Item>
+            <Menu.Item>
+              <SignUpModal />
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
+      )
+    }
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error,
+    user: state.auth.username
+  }
+}
+
+export default connect(mapStateToProps)(Header)
