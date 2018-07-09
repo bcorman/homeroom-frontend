@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Menu, Dropdown, Input } from 'semantic-ui-react'
-
+import CreateClassModal from '../CreateClassModal'
 
 
 class ClassDropdown extends Component {
@@ -19,6 +19,7 @@ class ClassDropdown extends Component {
           <Dropdown.Menu>
             <Input icon='search' iconPosition='left' className='search' />
             {classList}
+            <CreateClassModal />
           </Dropdown.Menu>
         </Dropdown>
       )
@@ -27,6 +28,7 @@ class ClassDropdown extends Component {
         <Dropdown item text='Classes'>
           <Dropdown.Menu>
             <Input icon='search' iconPosition='left' className='search' />
+            <CreateClassModal />
           </Dropdown.Menu>
         </Dropdown>
       )
