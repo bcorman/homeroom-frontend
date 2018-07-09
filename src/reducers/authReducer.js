@@ -3,7 +3,7 @@ import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from '../actions/ty
 const authReducer = (state = {}, action) => {
   switch (action.type) {
     case AUTH_USER:
-      return {...state, error: '', authenticated: true, username: action.payload}
+      return {...state, error: '', authenticated: true, user: action.payload.name, email: action.payload.email}
     case UNAUTH_USER:
       return {...state, authenticated: false, username: '' }
     case AUTH_ERROR:

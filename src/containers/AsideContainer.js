@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { Menu, Grid } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 import Logo from '../components/Logo'
 import FacultyDropdown from '../components/dropdowns/FacultyDropdown'
 
 class AsideContainer extends Component {
+
   handleItemClick = name => this.setState({ activeItem: name })
 
   render() {
     const { activeItem } = this.state || {}
 
+    console.log(this.props)
     return (
       <Grid.Column width={4}>
         <Menu vertical>
@@ -26,7 +29,7 @@ class AsideContainer extends Component {
               active={activeItem === 'calendar'}
               onClick={this.handleItemClick}
             />
-            <FacultyDropdown />
+              <FacultyDropdown />
             <Menu.Item
               name='classes'
               active={activeItem === 'classes'}
@@ -58,4 +61,13 @@ class AsideContainer extends Component {
   }
 }
 
-export default AsideContainer
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error,
+    user: state.auth.user,
+    faculty: state.list.faculty
+  }
+}
+
+export default connect(mapStateToProps)(AsideContainer)

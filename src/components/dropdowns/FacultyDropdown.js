@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
-import { Menu, Dropdown } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { Menu, Dropdown, Input } from 'semantic-ui-react'
+import SignUpModal from '../SignUpModal'
+import FacultyList from './FacultyList'
 
 class FacultyDropdown extends Component {
+
   render() {
     return (
-      <Dropdown item text='Faculty'>
-        <Dropdown.Menu>
-          <Dropdown.Item>Electronics</Dropdown.Item>
-          <Dropdown.Item>Automotive</Dropdown.Item>
-          <Dropdown.Item>Home</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <FacultyList />
     )
   }
 }
 
-export default FacultyDropdown
+const mapStateToProps = (state) => {
+  return { faculty: state.list.faculty }
+}
+
+export default connect(mapStateToProps)(FacultyDropdown)

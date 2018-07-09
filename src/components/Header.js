@@ -3,11 +3,9 @@ import { Menu, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import SignInModal from './SignInModal'
 import SignOutModal from './SignOutModal'
-import SignUpModal from './SignUpModal'
 
 class Header extends Component {
   render() {
-    console.log(this.props.user)
     if (this.props.authenticated) {
       return (
         <Menu size={'large'}>
@@ -30,15 +28,12 @@ class Header extends Component {
         <Menu size={'large'}>
 
           <h1 id='header-school-name'>
-            Normal Middle School
+            Minimum Viable Middle School
           </h1>
 
           <Menu.Menu position='right'>
             <Menu.Item>
               <SignInModal />
-            </Menu.Item>
-            <Menu.Item>
-              <SignUpModal />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -51,7 +46,7 @@ const mapStateToProps = (state) => {
   return {
     authenticated: state.auth.authenticated,
     errorMessage: state.auth.error,
-    user: state.auth.username
+    user: state.auth.user
   }
 }
 

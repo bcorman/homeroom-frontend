@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button, Header, Modal, Menu, Form, Message } from 'semantic-ui-react'
+import { Button, Header, Modal, Menu, Form, Message, Dropdown } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 import SignUpForm from './SignUpForm'
 import {signUpUser} from '../actions/authActions'
@@ -18,8 +18,8 @@ class SignUpModal extends Component {
 
   render() {
     return (
-      <Modal trigger={<Button name='signUp'>Sign Up</Button>}>
-        <Modal.Header>Sign Up</Modal.Header>
+      <Modal trigger={<Dropdown.Item id="add-faculty" name='signUp'>Add Faculty</Dropdown.Item>}>
+        <Modal.Header>Add Faculty</Modal.Header>
         <Modal.Content>
           <SignUpForm />
         </Modal.Content>
