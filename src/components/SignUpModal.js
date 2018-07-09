@@ -19,11 +19,7 @@ class SignUpModal extends Component {
   render() {
     console.log(this.props)
     return (
-      <Modal
-        trigger={<Menu.Item
-                  name='signUp'>
-                  Sign Up
-                </Menu.Item>}>
+      <Modal trigger={<Button name='signUp'>Sign Up</Button>}>
         <Modal.Header>Sign Up</Modal.Header>
         <Modal.Content>
           <SignUpForm />

@@ -13,11 +13,7 @@ class SignOutModal extends Component {
   render() {
 
     return (
-      <Modal
-        size='small'
-        trigger={<Menu.Item name='logout'>
-                    Sign Out
-                 </Menu.Item>}>
+      <Modal size='small' trigger={<Button name='signOut'>Sign Out</Button>}>
         <Modal.Header>Sign Out</Modal.Header>
         <Modal.Content>
           <p>Are you sure you want to sign out?</p>
