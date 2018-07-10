@@ -6,16 +6,12 @@ import AsideContainer from './containers/AsideContainer'
 import MainContainer from './containers/MainContainer'
 import AnnouncementsContainer from './containers/AnnouncementsContainer'
 import ClassContainer from './containers/ClassContainer'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import Routes from './Routes'
 
 class App extends Component {
   render() {
 
-    let classes = this.props.classes.classes
-    let classRoutes = classes.map((classRoom, index) => {
-      let url = (`/classes/grade${classRoom.gradeLevel}/${classRoom.subject}`)
-      return <Route exact path={url}  key={index} render={() => <ClassContainer currentClass={classRoom} key={index} />}/>
-    })
+
 
     return (
       <div>
@@ -25,9 +21,7 @@ class App extends Component {
             <Grid.Row>
               <Grid columns={2}>
                 <AsideContainer />
-                <Switch>
-                  {classRoutes}
-                </Switch>
+                <Routes />
               </Grid>
             </Grid.Row>
           </Grid.Column>
@@ -40,6 +34,5 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return state
 }
-let extra = <Route path='/' component={AnnouncementsContainer} />
 
 export default connect(mapStateToProps)(App)

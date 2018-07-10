@@ -10,11 +10,9 @@ class ClassDropdown extends Component {
     if (this.props.classes) {
 
       let classes = this.props.classes
-      console.log(`classes: ${Array.isArray(classes)}`)
-      console.log(classes[0].subject)
       let classList = classes.map((classRoom, index) => {
         let pathname = (`/classes/grade${classRoom.gradeLevel}/${classRoom.subject}`)
-        return <Dropdown.Item key={index}><Link to={pathname} key={index} onClick={this.props.setClass(classRoom)}>Grade {classRoom.gradeLevel} {classRoom.subject}</Link></Dropdown.Item>
+        return <Dropdown.Item key={index}><Link to={pathname} key={index} onClick={this.props.viewClass(classRoom)}>Grade {classRoom.gradeLevel} {classRoom.subject}</Link></Dropdown.Item>
       })
       return (
         <Dropdown item text='Classes'>

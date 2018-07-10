@@ -29,7 +29,7 @@ if (faculty && classes) {
 if (token && user) {
   store.dispatch({type: AUTH_USER, payload: user })
 }
-console.log(`in index.js ${user.name}`)
+
 
 
 ReactDOM.render(

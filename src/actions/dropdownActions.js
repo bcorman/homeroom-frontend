@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { ROOT_URL } from '../config'
-import { LIST_FACULTY, SET_CLASS_VIEW } from './types'
+import { LIST_FACULTY, VIEW_CLASS, VIEW_FACULTY } from './types'
 
 export function getFaculty() {
   return function (dispatch) {
@@ -14,9 +14,20 @@ export function getFaculty() {
   }
 }
 
-export function setClass(classRoom) {
-  return {
-    type: SET_CLASS_VIEW,
-    payload: classRoom
+export function viewClass(classRoom) {
+  return function (dispatch) {
+    dispatch({
+      type: VIEW_CLASS,
+      payload: classRoom
+    })
+  }
+}
+
+export function viewFaculty(faculty) {
+  return function (dispatch) {
+    dispatch({
+      type: VIEW_FACULTY,
+      payload: faculty
+    })
   }
 }

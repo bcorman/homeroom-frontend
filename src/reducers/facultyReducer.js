@@ -1,4 +1,4 @@
-import { LIST_FACULTY } from '../actions/types'
+import { LIST_FACULTY, VIEW_FACULTY } from '../actions/types'
 
 const defaultFaculty = [{
   name: 'Principle Skinner',
@@ -25,6 +25,8 @@ const facultyReducer = (state = defaultFaculty, action) => {
   switch (action.type) {
     case LIST_FACULTY:
       return {...state, faculty: action.payload }
+    case VIEW_FACULTY:
+      return {...state, currentFaculty: action.payload }
     default:
       return state
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Logo from '../components/Logo'
 import FacultyDropdown from '../components/dropdowns/FacultyDropdown'
 import ClassDropdown from '../components/dropdowns/ClassDropdown'
@@ -12,7 +13,6 @@ class AsideContainer extends Component {
   render() {
     const { activeItem } = this.state || {}
 
-    console.log(this.props)
     return (
       <Grid.Column width={4}>
         <Menu vertical>
@@ -20,11 +20,13 @@ class AsideContainer extends Component {
             <Logo />
           </Menu.Item>
           <Menu.Item>
-            <Menu.Item
-              name='announcements'
-              active={activeItem === 'announcements'}
-              onClick={this.handleItemClick}
-            />
+            <Link to='/main'>
+              <Menu.Item
+                name='announcements'
+                active={activeItem === 'announcements'}
+                onClick={this.handleItemClick}
+              />
+            </Link>
             <Menu.Item
               name='calendar'
               active={activeItem === 'calendar'}

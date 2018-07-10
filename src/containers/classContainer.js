@@ -3,13 +3,10 @@ import { connect } from 'react-redux'
 import { Grid, Item, Image } from 'semantic-ui-react'
 
 class ClassContainer extends Component {
-  state = {
-    currentClass: this.props.currentClass
-  }
 
   render(){
 
-    console.log(this.state.currentClass)
+    console.log(this.props.currentClass)
     return (
       <Grid.Column width={12}>
         <Grid.Row>
@@ -34,7 +31,7 @@ class ClassContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {currentClass: state.currentClass}
+  return state
 }
 
 export default connect(mapStateToProps)(ClassContainer)

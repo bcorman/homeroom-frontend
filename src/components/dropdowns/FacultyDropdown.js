@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import * as actions from '../../actions/dropdownActions'
 import { Menu, Dropdown, Input } from 'semantic-ui-react'
 import SignUpModal from '../SignUpModal'
 
 class FacultyDropdown extends Component {
   render() {
+
     if (this.props.faculty) {
       let faculty = this.props.faculty
-      console.log(`First name on list: ${faculty[0].name}`)
-      console.log(`faculty: ${faculty}`)
-      console.log(Array.isArray(faculty))
 
-      let staff = faculty.map(person => {
-        return <Dropdown.Item key={person._id}>{person.name}</Dropdown.Item>
+      let staff = faculty.map((person, index) => {
+        let pathname = (`/staff/$person.name`)
+        return <Dropdown.Item key={index}><Link to={pathname} key={index} onClick={this.props.viewFaculty(person)}>{person.name}</Link></Dropdown.Item>
       })
 
       return (
@@ -38,7 +39,7 @@ class FacultyDropdown extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { faculty: state.faculty.faculty }
+  return {faculty: state.faculty.faculty}
 }
 
-export default connect(mapStateToProps)(FacultyDropdown)
+export default connect(mapStateToProps, actions)(FacultyDropdown)
