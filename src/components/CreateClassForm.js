@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Form, Message, Checkbox, Dropdown } from 'semantic-ui-react'
-import * as actions from '../actions/'
+import * as actions from '../actions/classCrudActions'
 
 const subjects = ['Math', 'Science', 'English', 'ForeignLanguage', 'Humanities', 'Art', 'Music']
 
@@ -10,26 +10,22 @@ const subjects = ['Math', 'Science', 'English', 'ForeignLanguage', 'Humanities',
 class CreateClassForm extends Component {
   state = {
     gradeLevel: '',
-    subject: ''
+    subject: '',
+    faculty: ''
   }
 
   handleChange = (e) => {
-    console.log(e.target)
-    console.log(e.target.value)
     if (e.target.name === 'gradeLevel') {
       this.setState({ gradeLevel: parseInt(e.target.value)})
     } else {
       this.setState({ [e.target.name]: e.target.value })
     }
-    console.log(this.state)
   }
 
   toggle = () => this.setState({ checked: !this.state.checked })
 
   submit = (e) => {
-    if (this.state.password === this.state.confirmPassword) {
-      this.props.signUpUser(this.state.name, this.state.username, this.state.email, this.state.password, this.state.confirmPassword, this.state.checked)
-    }
+    this.props.createClass(this.state.subject, this.state.gradeLevel, this.state.faculty)
   }
 
   render() {
@@ -39,17 +35,20 @@ class CreateClassForm extends Component {
 
     return (
       <Form>
-        <Form.Input placeholder = 'Grade Level'
+        <Form.Input required
+          placeholder = 'Grade Level'
           label='Grade'
           name='gradeLevel'
           type='text'
           onChange={this.handleChange}/>
-        <Form.Input placeholder = 'Subject'
+        <Form.Input required
+          placeholder = 'Subject'
           label='Subject'
           name='subject'
           type='text'
           onChange={this.handleChange}/>
-        <Form.Input placeholder = 'Classroom Teacher'
+        <Form.Input required
+          placeholder = 'Classroom Teacher'
           label='Faculty'
           type='text'
           name='faculty'

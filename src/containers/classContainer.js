@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
-import { Grid, Card } from 'semantic-ui-react'
+import { Grid, Item, Image } from 'semantic-ui-react'
 
 class ClassContainer extends Component {
   render(){
     return (
-      <Grid>
+      <Grid.Column width={12}>
         <Grid.Row>
-          <Card.Group>
-            <Card fluid color='red' header='Option 1' />
-            <Card fluid color='orange' header='Option 2' />
-            <Card fluid color='yellow' header='Option 3' />
-          </Card.Group>
+          <h1 className='announcement-page-header'>Class Name</h1>
         </Grid.Row>
-      </Grid>
+        <Item.Group>
+          <Item>
+            <Item.Image size='tiny' src='images/placeholder_avatar.png' />
+            <Item.Content>
+              <Item.Header as='a'>Header</Item.Header>
+              <Item.Meta>Description</Item.Meta>
+              <Item.Description>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </Item.Description>
+              <Item.Extra>Additional Details</Item.Extra>
+            </Item.Content>
+          </Item>
+        </Item.Group>
+      </Grid.Column>
     )
   }
 }

@@ -30,8 +30,8 @@ class AsideContainer extends Component {
               active={activeItem === 'calendar'}
               onClick={this.handleItemClick}
             />
-              <FacultyDropdown />
-              <ClassDropdown />
+            <FacultyDropdown />
+            <ClassDropdown />
             <Menu.Item
               name='useful documents'
               active={activeItem === 'documents'}

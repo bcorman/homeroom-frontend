@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Menu, Dropdown, Input } from 'semantic-ui-react'
 import CreateClassModal from '../CreateClassModal'
-
+import { Route, Link, Switch } from 'react-router-dom'
 
 class ClassDropdown extends Component {
   render() {
@@ -11,8 +11,9 @@ class ClassDropdown extends Component {
       let classes = this.props.classes
       console.log(`classes: ${Array.isArray(classes)}`)
       console.log(classes[0].subject)
-      let classList = classes.map(classRoom => {
-        return <Dropdown.Item key={classRoom._id}>Grade {classRoom.gradeLevel} {classRoom.subject}</Dropdown.Item>
+      let classList = classes.map((classRoom, index) => {
+        let pathname = (`/classes/grade${classRoom.gradeLevel}/${classRoom.subject}`)
+        return <Link to={pathname} key={index}><Dropdown.Item key={index}>Grade {classRoom.gradeLevel} {classRoom.subject}</Dropdown.Item></Link>
       })
       return (
         <Dropdown item text='Classes'>
