@@ -12,8 +12,9 @@ class App extends Component {
   render() {
 
     let classes = this.props.classes.classes
-    let urls = classes.map(classRoom => {
-      return (`/classes/grade${classRoom.gradeLevel}/${classRoom.subject}`)
+    let classRoutes = classes.map((classRoom, index) => {
+      let url = (`/classes/grade${classRoom.gradeLevel}/${classRoom.subject}`)
+      return <Route exact path={url}  key={index} render={() => <ClassContainer currentClass={classRoom} key={index} />}/>
     })
 
     return (
@@ -25,7 +26,6 @@ class App extends Component {
               <Grid columns={2}>
                 <AsideContainer />
                 <Switch>
-                  <Route path='/' component={AnnouncementsContainer} />
                   {classRoutes}
                 </Switch>
               </Grid>
@@ -40,5 +40,6 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return state
 }
+let extra = <Route path='/' component={AnnouncementsContainer} />
 
 export default connect(mapStateToProps)(App)
