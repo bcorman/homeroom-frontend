@@ -4,6 +4,15 @@ import { Modal, Dropdown } from 'semantic-ui-react'
 import CreateClassForm from './CreateClassForm'
 
 class CreateClassModal extends Component {
+  constructor() {
+    super()
+    this.state = {}
+    this.handleClose = this.handleClose.bind(this)
+  }
+
+  handleOpen = () => this.setState({modalOpen: true})
+  handleClose = () => this.setState({modalOpen: false})
+
 
   getRedirectPath() {
     const locationState = this.props.location.state
@@ -16,10 +25,13 @@ class CreateClassModal extends Component {
 
   render() {
     return (
-      <Modal trigger={<Dropdown.Item id="add-class" name='addClass'>Add Class</Dropdown.Item>}>
+      <Modal
+        open={this.state.modalOpen}
+        onClose={this.handleClose}
+        trigger={<Dropdown.Item id="add-class" name='addClass'>Add Class</Dropdown.Item>}>
         <Modal.Header>Add Class</Modal.Header>
         <Modal.Content>
-          <CreateClassForm />
+          <CreateClassForm close={this.handleClose}/>
         </Modal.Content>
       </Modal>
     )

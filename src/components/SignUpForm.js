@@ -22,6 +22,7 @@ class SignUpForm extends Component {
   submit = (e) => {
     if (this.state.password === this.state.confirmPassword) {
       this.props.signUpUser(this.state.name, this.state.username, this.state.email, this.state.password, this.state.confirmPassword, this.state.checked)
+      this.props.close()
     }
   }
 

@@ -16,6 +16,7 @@ class AnnouncementForm extends Component {
 
   submit = (e) => {
     this.props.newPost(this.state.title, this.state.body, this.props.user, 'announcement', this.props.currentClass)
+    this.props.close()
   }
 
   render() {
