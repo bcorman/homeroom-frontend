@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { ROOT_URL } from '../config'
-import { LIST_CLASSES } from './types'
+import { LIST_CLASSES, VIEW_CLASS } from './types'
 
 export function createClass(subject, grade, faculty) {
   return function(dispatch) {
@@ -12,6 +12,18 @@ export function createClass(subject, grade, faculty) {
     .catch(function (error) {
       console.log(error)
     })
+  }
+}
+
+export function populateClass(classId) {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/class`, classId)
+      .then(function (response) {
+        dispatch({type: VIEW_CLASS, payload: response.data.class })
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 }
 //

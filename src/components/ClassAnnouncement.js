@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Item } from 'semantic-ui-react'
+import { Item, Image } from 'semantic-ui-react'
 
 class ClassAnnouncement extends Component {
   render() {
     return (
       <Item.Group>
         <Item>
-          <Item.Image size='tiny' src='%PUBLIC_URL%/placeholder_avatar.png' />
+          <Item.Image size='tiny' src='images/placeholder_avatar.png' />
           <Item.Content>
             <Item.Header as='a'>Header</Item.Header>
             <Item.Meta>Description</Item.Meta>
@@ -20,3 +20,5 @@ class ClassAnnouncement extends Component {
     )
   }
 }
+
+export default ClassAnnouncement
