@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions/dropdownActions'
-import { Menu, Dropdown, Input } from 'semantic-ui-react'
+import { Dropdown, Input } from 'semantic-ui-react'
 import SignUpModal from '../SignUpModal'
 
 class FacultyDropdown extends Component {

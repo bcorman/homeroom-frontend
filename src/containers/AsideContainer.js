@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Grid, Button } from 'semantic-ui-react'
+import { Menu, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Logo from '../components/Logo'
@@ -68,4 +68,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default AsideContainer
+export default connect(mapStateToProps)(AsideContainer)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Dropdown, Input, Button } from 'semantic-ui-react'
+import { Dropdown, Input } from 'semantic-ui-react'
 import CreateClassModal from '../CreateClassModal'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions/dropdownActions'

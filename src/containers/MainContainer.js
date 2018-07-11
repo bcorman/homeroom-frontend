@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Grid } from 'semantic-ui-react'
 import AnnouncementsContainer from './AnnouncementsContainer'
 import ClassContainer from './ClassContainer'
 import { Switch, Route, withRouter } from 'react-router-dom'

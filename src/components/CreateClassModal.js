@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Dropdown } from 'semantic-ui-react'
-import { Redirect } from 'react-router-dom'
 import CreateClassForm from './CreateClassForm'
 
 class CreateClassModal extends Component {

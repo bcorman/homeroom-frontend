@@ -1,12 +1,13 @@
 import axios from 'axios'
 import { ROOT_URL } from '../config'
-import { CREATE_CLASS } from './types'
+import { LIST_CLASSES } from './types'
 
 export function createClass(subject, grade, faculty) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/class`, {subject, grade, faculty})
     .then(function (response) {
-      console.log(response.data)
+      console.log(response.data.classes)
+      dispatch({type: LIST_CLASSES, payload: response.data.classes })
     })
     .catch(function (error) {
       console.log(error)
