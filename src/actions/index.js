@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, FETCH_MESSAGE, LIST_FACULTY, CURRENT_USER, LIST_CLASSES } from './types'
-import { getFaculty } from './dropdownActions'
+import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, LIST_FACULTY, LIST_CLASSES } from './types'
+
 const ROOT_URL = 'http://localhost:3090'
 
 export const authError = (error) => {

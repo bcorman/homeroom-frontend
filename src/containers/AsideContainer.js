@@ -70,4 +70,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AsideContainer)
+export default AsideContainer

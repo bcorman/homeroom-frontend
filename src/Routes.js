@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, Switch, Redirect } from 'react-router-dom'
-import MainContainer from './containers/MainContainer'
+import { Route, Switch } from 'react-router-dom'
 import AnnouncementsContainer from './containers/AnnouncementsContainer'
 import ClassContainer from './containers/ClassContainer'
 
@@ -20,7 +19,7 @@ class Routes extends Component {
 
       <Switch>
         <Route path='/main' exact component={AnnouncementsContainer} />
-        {classRoutes}
+        <Route path='/classes/:_id' component={ClassContainer} />
 
       </Switch>
     )

@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button, Form, Message, Checkbox, Dropdown } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import * as actions from '../actions/classCrudActions'
-
-const subjects = ['Math', 'Science', 'English', 'ForeignLanguage', 'Humanities', 'Art', 'Music']
-
 
 
 class CreateClassForm extends Component {

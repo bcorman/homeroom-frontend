@@ -21,7 +21,7 @@ class App extends Component {
             <Grid.Row>
               <Grid columns={2}>
                 <AsideContainer />
-                <Routes />
+                <MainContainer />
               </Grid>
             </Grid.Row>
           </Grid.Column>
@@ -31,8 +31,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
 
-export default connect(mapStateToProps)(App)
+
+export default App

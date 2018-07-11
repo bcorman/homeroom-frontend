@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button, Header, Modal, Menu, Form, Message, Dropdown } from 'semantic-ui-react'
+import { Modal, Dropdown } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 import CreateClassForm from './CreateClassForm'
 

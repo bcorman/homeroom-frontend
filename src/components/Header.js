@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import SignInModal from './SignInModal'
 import SignOutModal from './SignOutModal'

@@ -1,16 +1,25 @@
 import React, { Component } from 'react'
+import { ROOT_URL } from '../config'
+import { Grid, Item } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { Grid, Item, Image } from 'semantic-ui-react'
 
 class ClassContainer extends Component {
+  state = {}
 
+  componentWillMount () {
+    let selected = this.props.match.params._id
+    let classes = JSON.parse(localStorage.getItem('classes'))
+    let current = classes.filter(classRoom => classRoom._id === selected)[0]
+    this.setState({currentClass: current})
+    console.log(current)
+  }
   render(){
+    let currentClass = this.state.currentClass
 
-    console.log(this.props.currentClass)
     return (
       <Grid.Column width={12}>
         <Grid.Row>
-          <h1 className='announcement-page-header'>Class Name</h1>
+          <h1 className='announcement-page-header'>Grade {currentClass.gradeLevel} {currentClass.subject}</h1>
         </Grid.Row>
         <Item.Group>
           <Item>
@@ -30,8 +39,6 @@ class ClassContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
 
-export default connect(mapStateToProps)(ClassContainer)
+
+export default ClassContainer

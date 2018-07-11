@@ -8,7 +8,7 @@ const defaultClasses = [{
   gradeLevel: 8
 }]
 
-const classReducer = (state = {}, action) => {
+let classReducer = (state = {}, action) => {
   switch (action.type) {
     case LIST_CLASSES:
       return {...state, classes: action.payload }
