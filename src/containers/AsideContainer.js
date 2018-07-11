@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Grid } from 'semantic-ui-react'
+import { Menu, Grid, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Logo from '../components/Logo'
@@ -20,13 +20,11 @@ class AsideContainer extends Component {
             <Logo />
           </Menu.Item>
           <Menu.Item>
-            <Link to='/main'>
-              <Menu.Item
-                name='announcements'
-                active={activeItem === 'announcements'}
-                onClick={this.handleItemClick}
-              />
-            </Link>
+            <Menu.Item as={ Link } to='/'
+              name='announcements'
+              active={activeItem === 'announcements'}
+              onClick={this.handleItemClick}
+            />
             <Menu.Item
               name='calendar'
               active={activeItem === 'calendar'}

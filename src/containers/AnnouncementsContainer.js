@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Item } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class AnnouncementsContainer extends Component {
   render(){
@@ -26,4 +28,8 @@ class AnnouncementsContainer extends Component {
   }
 }
 
-export default AnnouncementsContainer
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default withRouter(connect(mapStateToProps)(AnnouncementsContainer))

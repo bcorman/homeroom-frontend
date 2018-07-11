@@ -15,6 +15,7 @@ export function getFaculty() {
 }
 
 export function viewClass(classRoom) {
+  console.log(classRoom)
   return function (dispatch) {
     dispatch({
       type: VIEW_CLASS,

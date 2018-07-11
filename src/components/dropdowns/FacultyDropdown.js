@@ -12,8 +12,8 @@ class FacultyDropdown extends Component {
       let faculty = this.props.faculty
 
       let staff = faculty.map((person, index) => {
-        let pathname = (`/staff/${person.name}`)
-        return <Link to={pathname} key={index} onClick={this.props.viewFaculty(person)}><Dropdown.Item key={index}>{person.name}</Dropdown.Item></Link>
+        let pathname = (`/staff/${person._id}`)
+        return <Dropdown.Item as={ Link } to={pathname} key={index}>{person.name}</Dropdown.Item>
       })
 
       return (
