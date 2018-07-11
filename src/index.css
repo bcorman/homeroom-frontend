@@ -8,3 +8,15 @@ body {
   margin: auto;
   color: #bb3016;
 }
+
+#logo {
+  margin: auto;
+}
+
+#add-faculty {
+  color: blue;
+}
+
+.announcement-page-header {
+  text-align: center;
+}

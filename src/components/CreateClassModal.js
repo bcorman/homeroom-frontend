@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Dropdown } from 'semantic-ui-react'
-import SignUpForm from './SignUpForm'
-import {signUpUser} from '../actions/authActions'
+import { Redirect } from 'react-router-dom'
+import CreateClassForm from './CreateClassForm'
 
-class SignUpModal extends Component {
+class CreateClassModal extends Component {
 
   getRedirectPath() {
     const locationState = this.props.location.state
@@ -17,10 +17,10 @@ class SignUpModal extends Component {
 
   render() {
     return (
-      <Modal trigger={<Dropdown.Item id="add-faculty" name='signUp'>Add Faculty</Dropdown.Item>}>
-        <Modal.Header>Add Faculty</Modal.Header>
+      <Modal trigger={<Dropdown.Item id="add-class" name='addClass'>Add Class</Dropdown.Item>}>
+        <Modal.Header>Add Class</Modal.Header>
         <Modal.Content>
-          <SignUpForm />
+          <CreateClassForm />
         </Modal.Content>
       </Modal>
     )
@@ -28,7 +28,7 @@ class SignUpModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state
+  return { faculty: state.faculty.faculty }
 }
 
-export default connect(mapStateToProps, signUpUser)(SignUpModal)
+export default connect(mapStateToProps)(CreateClassModal)

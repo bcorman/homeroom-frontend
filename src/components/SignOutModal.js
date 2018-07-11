@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, Menu } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 

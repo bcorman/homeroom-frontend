@@ -1,81 +1,70 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Grid, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import Logo from '../components/Logo'
+import FacultyDropdown from '../components/dropdowns/FacultyDropdown'
+import ClassDropdown from '../components/dropdowns/ClassDropdown'
 
 class AsideContainer extends Component {
+
   handleItemClick = name => this.setState({ activeItem: name })
 
   render() {
     const { activeItem } = this.state || {}
 
     return (
-      <Menu vertical>
-        <Menu.Item>
-          <Menu.Header>Products</Menu.Header>
-
-          <Menu.Menu>
-            <Menu.Item
-              name='enterprise'
-              active={activeItem === 'enterprise'}
+      <Grid.Column width={4}>
+        <Menu vertical>
+          <Menu.Item>
+            <Logo />
+          </Menu.Item>
+          <Menu.Item>
+            <Menu.Item as={ Link } to='/'
+              name='announcements'
+              active={activeItem === 'announcements'}
               onClick={this.handleItemClick}
             />
             <Menu.Item
-              name='consumer'
-              active={activeItem === 'consumer'}
+              name='calendar'
+              active={activeItem === 'calendar'}
               onClick={this.handleItemClick}
             />
-          </Menu.Menu>
-        </Menu.Item>
-
-        <Menu.Item>
-          <Menu.Header>CMS Solutions</Menu.Header>
-
-          <Menu.Menu>
+            <FacultyDropdown />
+            <ClassDropdown />
             <Menu.Item
-              name='rails'
-              active={activeItem === 'rails'}
+              name='useful documents'
+              active={activeItem === 'documents'}
               onClick={this.handleItemClick}
             />
-            <Menu.Item
-              name='python'
-              active={activeItem === 'python'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item name='php' active={activeItem === 'php'} onClick={this.handleItemClick} />
-          </Menu.Menu>
-        </Menu.Item>
+          </Menu.Item>
 
-        <Menu.Item>
-          <Menu.Header>Hosting</Menu.Header>
+          <Menu.Item>
+            <Menu.Header>Support</Menu.Header>
 
-          <Menu.Menu>
-            <Menu.Item
-              name='shared'
-              active={activeItem === 'shared'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name='dedicated'
-              active={activeItem === 'dedicated'}
-              onClick={this.handleItemClick}
-            />
-          </Menu.Menu>
-        </Menu.Item>
+            <Menu.Menu>
+              <Menu.Item name='email' active={activeItem === 'email'} onClick={this.handleItemClick}>
+                E-mail Support
+              </Menu.Item>
 
-        <Menu.Item>
-          <Menu.Header>Support</Menu.Header>
-
-          <Menu.Menu>
-            <Menu.Item name='email' active={activeItem === 'email'} onClick={this.handleItemClick}>
-              E-mail Support
-            </Menu.Item>
-
-            <Menu.Item name='faq' active={activeItem === 'faq'} onClick={this.handleItemClick}>
-              FAQs
-            </Menu.Item>
-          </Menu.Menu>
-        </Menu.Item>
-      </Menu>
+              <Menu.Item name='faq' active={activeItem === 'faq'} onClick={this.handleItemClick}>
+                FAQs
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu.Item>
+        </Menu>
+      </Grid.Column>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated,
+    errorMessage: state.auth.error,
+    user: state.auth.user,
+    faculty: state.faculty,
+    classes: state.classes
   }
 }
 
