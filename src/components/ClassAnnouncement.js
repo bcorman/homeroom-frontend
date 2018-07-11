@@ -3,15 +3,16 @@ import { Item, Image } from 'semantic-ui-react'
 
 class ClassAnnouncement extends Component {
   render() {
+    console.log(this.props.content)
     return (
       <Item.Group>
         <Item>
           <Item.Image size='tiny' src='images/placeholder_avatar.png' />
           <Item.Content>
-            <Item.Header as='a'>Header</Item.Header>
-            <Item.Meta>Description</Item.Meta>
+            <Item.Header as='a'>{this.props.content.title}</Item.Header>
+            <Item.Meta>{this.props.content.author.name}</Item.Meta>
             <Item.Description>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>{this.props.content.body}</p>
             </Item.Description>
             <Item.Extra>Additional Details</Item.Extra>
           </Item.Content>

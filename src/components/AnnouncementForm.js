@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Form } from 'semantic-ui-react'
-import * as actions from '../actions/classCrudActions'
+import * as actions from '../actions/postCrudActions'
 
 
 class AnnouncementForm extends Component {
@@ -14,9 +14,8 @@ class AnnouncementForm extends Component {
       this.setState({ [e.target.name]: e.target.value })
   }
 
-  toggle = () => this.setState({ checked: !this.state.checked })
-
   submit = (e) => {
+    this.props.newPost(this.state.title, this.state.body, this.props.user, 'announcement', this.props.currentClass)
   }
 
   render() {
@@ -29,20 +28,22 @@ class AnnouncementForm extends Component {
           name='title'
           type='text'
           onChange={this.handleChange}/>
-        <Form.Input required
+        <Form.TextArea required
           placeholder = 'Body'
           label='Body'
           name='body'
-          type='textarea'
           onChange={this.handleChange}/>
-        <Button type='submit' onClick={this.submit}>Submit</Button>
+        <Button type='submit' onClick={this.submit} color='green'>Submit</Button>
       </Form>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return { state }
+  return {
+    user: state.auth.user,
+    currentClass: state.classes.currentClass
+  }
 }
 
 

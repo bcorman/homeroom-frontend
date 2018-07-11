@@ -5,14 +5,13 @@ import CreateClassModal from '../CreateClassModal'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions/dropdownActions'
 
+
 class ClassDropdown extends Component {
 
   linkTo = (e) => {
-    console.log(e.target.id)
-
     let target = this.props.classes.filter((classRoom => classRoom._id === e.target.id))[0]
     this.props.viewClass(target)
-    console.log(target)
+    this.props.getClassPosts(target._id)
   }
 
   render() {

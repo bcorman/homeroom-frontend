@@ -7,7 +7,6 @@ import ClassAnnouncements from '../components/ClassAnnouncements'
 class ClassContainer extends Component {
   render(){
 
-    console.log(this.props.currentClass)
     if (this.props.currentClass) {
       return (
         <Grid.Column width={12}>
