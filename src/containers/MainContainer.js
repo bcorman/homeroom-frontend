@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AnnouncementsContainer from './AnnouncementsContainer'
-import ClassContainer from './ClassContainer'
+import classContainer from './classContainer'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
