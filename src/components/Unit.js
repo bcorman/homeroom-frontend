@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Item } from 'semantic-ui-react'
 
 class Unit extends Component {

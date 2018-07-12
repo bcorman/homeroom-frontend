@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Item } from 'semantic-ui-react'
-import { withRouter } from 'react-router-dom'
+import { Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import NewAnnouncementModal from '../components/NewAnnouncementModal'
 import SchoolAnnouncements from '../components/SchoolAnnouncements'

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Grid, Item } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { Switch, Route, withRouter } from 'react-router-dom'
 import ClassNavMenu from '../components/ClassNavMenu'
 import ClassAnnouncements from '../components/ClassAnnouncements'
 import Units from '../components/Units'

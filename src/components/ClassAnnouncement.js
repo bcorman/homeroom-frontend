@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Item, Image } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 
 class ClassAnnouncement extends Component {
   render() {
