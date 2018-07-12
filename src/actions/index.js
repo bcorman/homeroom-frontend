@@ -14,7 +14,7 @@ export const authError = (error) => {
 export function signUpUser(name, username, email, password, passwordConfirmation, checked) {
 
   return function (dispatch) {
-    axios.post(`${ROOT_URL}/signup`, {name, username, email, password, passwordConfirmation, checked })
+    axios.post(`${URL}/signup`, {name, username, email, password, passwordConfirmation, checked })
       .then(response => {
         let user = response.data.user
         let faculty = response.data.faculty
@@ -30,7 +30,7 @@ export function signUpUser(name, username, email, password, passwordConfirmation
 export function signInUser(email, password) {
   return function (dispatch) {
     // submit email and password to server
-    const request = axios.post(`${ROOT_URL}/signin`, {email, password})
+    const request = axios.post(`${URL}/signin`, {email, password})
     request
       .then(response => {
         // -Save the JWT token

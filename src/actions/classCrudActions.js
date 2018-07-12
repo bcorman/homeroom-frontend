@@ -4,7 +4,7 @@ let URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 export function createClass(subject, grade, faculty) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/class`, {subject, grade, faculty})
+    axios.post(`${URL}/class`, {subject, grade, faculty})
     .then(function (response) {
       console.log(response.data.classes)
       dispatch({type: LIST_CLASSES, payload: response.data.classes })
@@ -17,7 +17,7 @@ export function createClass(subject, grade, faculty) {
 
 export function populateClass(classId) {
   return function(dispatch) {
-    axios.get(`${ROOT_URL}/class`, classId)
+    axios.get(`${URL}/class`, classId)
       .then(function (response) {
         dispatch({type: VIEW_CLASS, payload: response.data.class })
       })

@@ -4,7 +4,7 @@ let URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 export function getFaculty() {
   return function (dispatch) {
-    axios.get(`${ROOT_URL}/faculty`)
+    axios.get(`${URL}/faculty`)
       .then(response => {
         dispatch({type: LIST_FACULTY, payload: response.data.faculty})
       })
@@ -36,7 +36,7 @@ export function getClassPosts (classId) {
   return function (dispatch) {
     console.log(` in post index function ${classId}`)
 
-    axios.get(`${ROOT_URL}/class/posts/${classId}`)
+    axios.get(`${URL}/class/posts/${classId}`)
       .then(function (response) {
         console.log(response)
         dispatch({ type: GET_POSTS, posts: response.data.posts })

@@ -5,7 +5,7 @@ let URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 export function newPost (title, body, author, type, currentClass) {
   return function (dispatch) {
-    axios.post(`${ROOT_URL}/post`, {title, body, timestamp: new Date(), author, type, currentClass})
+    axios.post(`${URL}/post`, {title, body, timestamp: new Date(), author, type, currentClass})
       .then(function (response) {
         console.log(response)
         dispatch({type: CREATE_POST, payload: response.data.post})
@@ -19,7 +19,7 @@ export function newPost (title, body, author, type, currentClass) {
 export function getClassPosts (classId) {
   return function (dispatch) {
     console.log(` in post index function ${classId}`)
-    axios.get(`${ROOT_URL}/post`, {classId})
+    axios.get(`${URL}/post`, {classId})
       .then(function (response) {
         console.log(response)
         dispatch({type: GET_POSTS, payload: response.data.posts})
