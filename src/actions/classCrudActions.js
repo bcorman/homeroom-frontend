@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { LIST_CLASSES, VIEW_CLASS } from './types'
-const ROOT_URL = 'https://glacial-shelf-60914.herokuapp.com'
+let URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 export function createClass(subject, grade, faculty) {
   return function(dispatch) {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { CREATE_POST, GET_POSTS } from '../actions/types'
-const ROOT_URL = 'https://glacial-shelf-60914.herokuapp.com'
+let URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 
 export function newPost (title, body, author, type, currentClass) {
