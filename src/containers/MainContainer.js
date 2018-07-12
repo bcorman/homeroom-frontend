@@ -10,7 +10,7 @@ class MainContainer extends Component {
     return (
         <Switch>
           <Route exact path='/classes/:_id' component={ClassContainer} />
-          <Route path='/' component={AnnouncementsContainer} />
+          <Route exact path='/' component={AnnouncementsContainer} />
         </Switch>
     )
   }

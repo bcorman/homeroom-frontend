@@ -20,7 +20,7 @@ class AsideContainer extends Component {
             <Logo />
           </Menu.Item>
           <Menu.Item>
-            <Menu.Item as={ Link } to='//'
+            <Menu.Item as={ Link } to='/'
               name='announcements'
               active={activeItem === 'announcements'}
               onClick={this.handleItemClick}
