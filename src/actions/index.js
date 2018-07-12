@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, LIST_FACULTY, LIST_CLASSES } from './types'
 
-const ROOT_URL = 'http://localhost:3090'
+const ROOT_URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 export const authError = (error) => {
   return {
@@ -37,10 +37,9 @@ export function signInUser(email, password) {
         let user = response.data.user
         let faculty = response.data.faculty
         let classes = response.data.classes
-        console.log(`in axios call: `)
-        console.log(response.data)
+
         // -if request is good, we need to update state to indicate user is authenticated
-        localStorage.setItem('user', user.name)
+        localStorage.setItem('user', JSON.stringify(user))
         localStorage.setItem('email', user.email)
         localStorage.setItem('classes', JSON.stringify(classes))
         localStorage.setItem('faculty', JSON.stringify(faculty))

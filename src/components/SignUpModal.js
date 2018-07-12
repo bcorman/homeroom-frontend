@@ -5,6 +5,11 @@ import SignUpForm from './SignUpForm'
 import {signUpUser} from '../actions/authActions'
 
 class SignUpModal extends Component {
+  constructor() {
+    super()
+    this.state = {}
+    this.handleClose = this.handleClose.bind(this)
+  }
 
   getRedirectPath() {
     const locationState = this.props.location.state
@@ -14,13 +19,17 @@ class SignUpModal extends Component {
       return '/'
     }
   }
+  handleOpen = () => this.setState({modalOpen: true})
+  handleClose = () => this.setState({modalOpen: false})
 
   render() {
     return (
-      <Modal trigger={<Dropdown.Item id="add-faculty" name='signUp'>Add Faculty</Dropdown.Item>}>
+      <Modal trigger={<Dropdown.Item id="add-faculty" name='signUp' onClick={this.handleOpen}>Add Faculty</Dropdown.Item>}
+        open={this.state.modalOpen}
+        onClose={this.handleClose}>
         <Modal.Header>Add Faculty</Modal.Header>
         <Modal.Content>
-          <SignUpForm />
+          <SignUpForm close={this.handleClose}/>
         </Modal.Content>
       </Modal>
     )

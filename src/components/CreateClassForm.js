@@ -23,6 +23,7 @@ class CreateClassForm extends Component {
 
   submit = (e) => {
     this.props.createClass(this.state.subject, this.state.gradeLevel, this.state.faculty)
+    this.props.close()
   }
 
   render() {
