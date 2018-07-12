@@ -9,7 +9,7 @@ class MainContainer extends Component {
     console.log('in main container')
     return (
         <Switch>
-          <Route path='/classes/:_id' component={ClassContainer} />
+          <Route exact path='/classes/:_id' component={ClassContainer} />
           <Route path='/' component={AnnouncementsContainer} />
         </Switch>
     )
