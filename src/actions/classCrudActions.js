@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { ROOT_URL } from '../config'
 import { LIST_CLASSES, VIEW_CLASS } from './types'
+const ROOT_URL = process.env.ROOT_URL
 
 export function createClass(subject, grade, faculty) {
   return function(dispatch) {

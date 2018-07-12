@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { ROOT_URL } from '../config'
 import { LIST_FACULTY, VIEW_CLASS, VIEW_FACULTY, GET_POSTS } from './types'
+const ROOT_URL = process.env.ROOT_URL
 
 export function getFaculty() {
   return function (dispatch) {

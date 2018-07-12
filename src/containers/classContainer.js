@@ -33,7 +33,6 @@ class ClassContainer extends Component {
           <Grid.Row>
             {page}
           </Grid.Row>
-
         </Grid.Column>
       )
     } else {
