@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, LIST_FACULTY, LIST_CLASSES } from './types'
-const ROOT_URL = process.env.ROOT_URL
+const ROOT_URL = 'https://glacial-shelf-60914.herokuapp.com'
 
-
+console.log(ROOT_URL)
 export const authError = (error) => {
   return {
     type: AUTH_ERROR,

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { LIST_FACULTY, VIEW_CLASS, VIEW_FACULTY, GET_POSTS } from './types'
-const ROOT_URL = process.env.ROOT_URL
+const ROOT_URL = 'https://glacial-shelf-60914.herokuapp.com'
 
 export function getFaculty() {
   return function (dispatch) {
