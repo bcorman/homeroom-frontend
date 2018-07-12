@@ -20,3 +20,7 @@ body {
 .announcement-page-header {
   text-align: center;
 }
+
+#class-nav {
+  margin: 1em 0 2em;
+}

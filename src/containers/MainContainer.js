@@ -6,10 +6,11 @@ import { connect } from 'react-redux'
 
 class MainContainer extends Component {
   render() {
+    console.log('in main container')
     return (
         <Switch>
-          <Route exact path='/' component={AnnouncementsContainer} />
-          <Route exact path='/classes/:_id' component={ClassContainer} />
+          <Route path='/classes/:_id' component={ClassContainer} />
+          <Route path='/' component={AnnouncementsContainer} />
         </Switch>
     )
   }

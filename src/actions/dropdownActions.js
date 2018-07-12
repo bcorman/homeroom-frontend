@@ -39,7 +39,8 @@ export function getClassPosts (classId) {
     axios.get(`${ROOT_URL}/class/posts/${classId}`)
       .then(function (response) {
         console.log(response)
-        dispatch({type: GET_POSTS, payload: response.data.posts})
+        dispatch({ type: GET_POSTS, posts: response.data.posts })
+        dispatch({ type: VIEW_CLASS, currentClass: response.data.currentClass })
       })
       .catch(function (error) {
         console.log(error)

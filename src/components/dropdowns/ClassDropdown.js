@@ -15,6 +15,8 @@ class ClassDropdown extends Component {
   }
 
   render() {
+    console.log(this.props.classes)
+    console.log('line 19')
     if (this.props.classes) {
 
       let classes = this.props.classes

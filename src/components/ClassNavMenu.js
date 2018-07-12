@@ -22,28 +22,30 @@ class ClassNavMenu extends Component {
     const { activeItem } = this.state
     let pathname=(`/classes/${this.props.currentClass._id}`)
     return (
-      <Menu pointing widths={3}>
-        <Menu.Item
-          name='units'
-          active={activeItem === 'units'}
-          content='Units'
-          onClick={this.handleItemClick}
-        />
+      <div id='class-nav'>
+        <Menu pointing widths={3}>
+          <Menu.Item
+            name='units'
+            active={activeItem === 'units'}
+            content='Units'
+            onClick={this.handleItemClick}
+          />
 
-        <Menu.Item
-          name='announcements'
-          active={activeItem === 'announcements'}
-          content='Announcements'
-          onClick={this.handleItemClick}
-        />
+          <Menu.Item
+            name='announcements'
+            active={activeItem === 'announcements'}
+            content='Announcements'
+            onClick={this.handleItemClick}
+          />
 
-        <Menu.Item
-          name='students'
-          active={activeItem === 'students'}
-          content='Students'
-          onClick={this.handleItemClick}
-        />
-      </Menu>
+          <Menu.Item
+            name='students'
+            active={activeItem === 'students'}
+            content='Students'
+            onClick={this.handleItemClick}
+          />
+        </Menu>
+      </div>
     )
   }
 }

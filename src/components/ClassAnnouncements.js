@@ -9,9 +9,10 @@ import NewAnnouncementModal from './NewAnnouncementModal'
 class ClassAnnouncements extends Component {
 
   render() {
-
-    if (this.props.posts) {
-      let announcements = this.props.posts.map((post, index) => {
+    console.log('in class announcements')
+    console.log(this.props.currentClass)
+    if (this.props.currentClass.announcements) {
+      let announcements = this.props.currentClass.announcements.map((post, index) => {
         return <ClassAnnouncement key={index} content={post} />
       })
       return (
@@ -33,7 +34,6 @@ class ClassAnnouncements extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts.posts,
     currentClass: state.classes.currentClass
   }
 }

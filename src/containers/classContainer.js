@@ -5,11 +5,13 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import ClassNavMenu from '../components/ClassNavMenu'
 import ClassAnnouncements from '../components/ClassAnnouncements'
 import Units from '../components/Units'
+import Students from '../components/Students'
 
 class ClassContainer extends Component {
 
   render() {
     console.log(this.props.page)
+    console.log('in class container')
     let page
 
     if (this.props.currentClass) {
@@ -17,6 +19,8 @@ class ClassContainer extends Component {
         page = <ClassAnnouncements />
       } else if (this.props.page === 'units') {
         page = <Units />
+      } else if (this.props.page === 'students') {
+        page = <Students />
       }
       return (
         <Grid.Column width={10}>
@@ -43,4 +47,4 @@ const mapStateToProps = (state) => {
   return { currentClass: state.classes.currentClass, page: state.classes.page }
 }
 
-export default withRouter(connect(mapStateToProps)(ClassContainer))
+export default connect(mapStateToProps)(ClassContainer)
