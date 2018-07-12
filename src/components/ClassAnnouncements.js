@@ -2,31 +2,30 @@ import React, { Component } from 'react'
 import ClassAnnouncement from './ClassAnnouncement'
 import * as actions from '../actions/postCrudActions'
 import { connect } from 'react-redux'
-import { Grid, Button } from 'semantic-ui-react'
+import { Grid, Button, Item } from 'semantic-ui-react'
 import NewAnnouncementModal from './NewAnnouncementModal'
 
 
 class ClassAnnouncements extends Component {
 
   render() {
-    console.log(this.props.posts)
-    console.log(Array.isArray(this.props.posts))
 
     if (this.props.posts) {
       let announcements = this.props.posts.map((post, index) => {
         return <ClassAnnouncement key={index} content={post} />
       })
       return (
-        <div>
+        <Item.Group>
           { announcements }
           <NewAnnouncementModal />
-        </div>
+        </Item.Group>
+
       )
     } else {
       return (
-        <div>
+        <Item.Group>
           <NewAnnouncementModal />
-        </div>
+        </Item.Group>
       )
     }
   }

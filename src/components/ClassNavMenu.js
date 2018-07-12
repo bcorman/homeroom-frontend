@@ -1,14 +1,26 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import * as actions from '../actions/pageViewActions'
 
 class ClassNavMenu extends Component {
   state = {}
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  populatePage = (activeItem) => {
+    if (activeItem === 'announcements') {
+      console.log(this.props)
+    }
+    this.props.populatePage(activeItem)
+  }
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name })
+    this.populatePage(name)
+  }
 
   render() {
     const { activeItem } = this.state
-
+    let pathname=(`/classes/${this.props.currentClass._id}`)
     return (
       <Menu pointing widths={3}>
         <Menu.Item
@@ -35,4 +47,8 @@ class ClassNavMenu extends Component {
     )
   }
 }
-export default ClassNavMenu
+
+const mapStateToProps = (state) => {
+  return {currentClass: state.classes.currentClass}
+}
+export default connect(mapStateToProps, actions)(ClassNavMenu)
