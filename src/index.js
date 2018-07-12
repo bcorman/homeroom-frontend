@@ -14,10 +14,8 @@ let token = localStorage.getItem('token')
 let faculty = JSON.parse(localStorage.getItem('faculty'))
 let classes = JSON.parse(localStorage.getItem('classes'))
 
-let user = {
-  name: localStorage.getItem('user'),
-  email: localStorage.getItem('email')
-}
+let user = JSON.parse(localStorage.getItem('user'))
+
 
 const store = configureStore();
 

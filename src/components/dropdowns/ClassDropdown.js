@@ -22,16 +22,19 @@ class ClassDropdown extends Component {
         let pathname = (`/classes/${classRoom._id}`)
         return <Dropdown.Item as={ Link } to={pathname} id={classRoom._id} key={index} onClick={this.linkTo}>Grade {classRoom.gradeLevel} {classRoom.subject}</Dropdown.Item>
       })
+      if (this.props.auth.admin) {
+        classList.push(<CreateClassModal key={classList.length} />)
+      }
       return (
         <Dropdown item text='Classes'>
           <Dropdown.Menu>
             <Input icon='search' iconPosition='left' className='search' />
             {classList}
-            <CreateClassModal />
+
           </Dropdown.Menu>
         </Dropdown>
       )
-    } else {
+      } else {
       return (
         <Dropdown item text='Classes'>
           <Dropdown.Menu>
@@ -45,7 +48,7 @@ class ClassDropdown extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { classes: state.classes.classes }
+  return { classes: state.classes.classes, auth: state.auth }
 }
 
 export default connect(mapStateToProps, actions)(ClassDropdown)

@@ -40,7 +40,7 @@ export function signInUser(email, password) {
         console.log(`in axios call: `)
         console.log(response.data)
         // -if request is good, we need to update state to indicate user is authenticated
-        localStorage.setItem('user', user.name)
+        localStorage.setItem('user', JSON.stringify(user))
         localStorage.setItem('email', user.email)
         localStorage.setItem('classes', JSON.stringify(classes))
         localStorage.setItem('faculty', JSON.stringify(faculty))
