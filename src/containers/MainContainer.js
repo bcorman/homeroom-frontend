@@ -7,17 +7,21 @@ import { connect } from 'react-redux'
 class MainContainer extends Component {
   render() {
     console.log('in main container')
-    return (
+    console.log(this.props.view)
+    let page
+    if (this.props.view === 'announcements') {
+      page = <AnnouncementsContainer />
+    } else {
+      return (
         <Switch>
-          <Route exact path='/classes/:_id' component={ClassContainer} />
           <Route path='/main' component={AnnouncementsContainer} />
-          <Route path='/*' render={() => <Redirect to='/main' />} />
         </Switch>
-    )
+      )
+    }
   }
 }
 
 const mapStateToProps = (state) => {
-  return { state }
+  return { view: state.view.mainContainer }
 }
 export default withRouter(connect(mapStateToProps)(MainContainer))

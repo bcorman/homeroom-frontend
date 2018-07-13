@@ -10,6 +10,10 @@ class AsideContainer extends Component {
 
   handleItemClick = name => this.setState({ activeItem: name })
 
+  viewMainPage = () => {
+    this.props.viewMainPage('main')
+  }
+
   render() {
     const { activeItem } = this.state || {}
 
@@ -23,7 +27,8 @@ class AsideContainer extends Component {
             <Menu.Item as={ Link } to='/main'
               name='announcements'
               active={activeItem === 'announcements'}
-              onClick={this.handleItemClick}
+              onClick={this.viewMainPage}
+
             />
             <Menu.Item
               name='calendar'
