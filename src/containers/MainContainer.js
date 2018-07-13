@@ -6,18 +6,16 @@ import { connect } from 'react-redux'
 
 class MainContainer extends Component {
   render() {
-    console.log('in main container')
-    console.log(this.props.view)
       return (
         <Switch>
-          <Route path='/main' component={AnnouncementsContainer} />
+          <Route exact path='/classes/:_id' component={ClassContainer} />
+          <Route path='/' component={AnnouncementsContainer} />
         </Switch>
       )
-    
   }
 }
 
 const mapStateToProps = (state) => {
-  return { view: state.view }
+  return state
 }
 export default withRouter(connect(mapStateToProps)(MainContainer))
