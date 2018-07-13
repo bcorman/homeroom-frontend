@@ -1,4 +1,4 @@
-Homeroom
+                                  #H1 Homeroom
 
  Homeroom is a teacher-facing classroom and school management application designed to enable educators and administrators to keep track of important announcements, lesson plans, assignments, and student performance.
 
