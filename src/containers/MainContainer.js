@@ -8,8 +8,6 @@ class MainContainer extends Component {
   render() {
     console.log('in main container')
     console.log(this.props.view)
-
-    } else {
       return (
         <Switch>
           <Route path='/main' component={AnnouncementsContainer} />

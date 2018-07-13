@@ -8,3 +8,5 @@ const viewReducer = (state = 'announcements', action) => {
       return state
   }
 }
+
+export default viewReducer
