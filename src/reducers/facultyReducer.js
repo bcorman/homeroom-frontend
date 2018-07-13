@@ -21,7 +21,7 @@ const defaultFaculty = [{
   isAdmin: false
 }]
 
-const facultyReducer = (state = defaultFaculty, action) => {
+const facultyReducer = (state = {}, action) => {
   switch (action.type) {
     case LIST_FACULTY:
       return {...state, faculty: action.payload }
