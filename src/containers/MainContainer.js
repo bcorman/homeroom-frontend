@@ -13,7 +13,7 @@ class MainContainer extends Component {
           <Route path='/main' component={AnnouncementsContainer} />
         </Switch>
       )
-    }
+    
   }
 }
 
