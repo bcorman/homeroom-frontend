@@ -9,7 +9,7 @@ import Students from '../components/Students'
 class ClassContainer extends Component {
 
   render() {
-    console.log(this.props.page)
+    console.log(this.props)
     console.log('in class container')
     let page
 
